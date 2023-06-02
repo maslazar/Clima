@@ -1,52 +1,60 @@
-const Weather = ({weatherInfo}) => {
-    return (
-    <section>
+const Weather = ({ weatherInfo }) => {
+  return (
+    <section className="background">
+      <div className="titleHome">
+        <h2>
+          {weatherInfo?.name}, {weatherInfo?.sys.country}
+        </h2>
+      </div>
 
-        <h2>{weatherInfo?.name}, {weatherInfo?.sys.country}</h2>
+      <section className="flex">
+        <article className="mAuto">
+          <div className="contentWeather">
+            <h3 className="titleTow">{weatherInfo?.weather[0].description}</h3>
+            <div className="contentBoxOne">
+              <span>{weatherInfo?.main.temp}°K</span>
+              <img
+                src={`https://openweathermap.org/img/wn/${weatherInfo?.weather[0].icon}@4x.png`}
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div className="boxThree">
+            <div className="contentBox borderB">
+              <img src="/images/wind.png" alt="" />
+              <p>21°</p>
+            </div>
+            <div className="contentBox borderB">
+              <img src="/images/humidity.png" alt="" />
+              <p>21°</p>
+            </div>
+            <div className="contentBox">
+              <img src="/images/pressure.png" alt="" />
+              <p>21°</p>
+            </div>
+          </div>
+        </article>
 
         <section>
+          <div>
+            <img src="" alt="" />
+            <span></span>
+          </div>
 
-          {/*Seccion arriba*/}
-          <article>
-            
-            <h3>{weatherInfo?.weather[0].description}</h3>
+          <div>
+            <img src="" alt="" />
+            <span></span>
+          </div>
 
-            <span>{weatherInfo?.main.temp}°K</span>
-            
-            <div>
-              <img src={`https://openweathermap.org/img/wn/${weatherInfo?.weather[0].icon}@4x.png`} alt="" />
-            </div>
-          </article>
-          {/*Seccion abajo*/}
-          <section>
-
-            <article>
-              <div>
-                <img src="" alt="" />
-                <span></span>
-              </div>
-            </article>
-
-            <article>
-              <div>
-                <img src="" alt="" />
-                <span></span>
-              </div>
-            </article>
-
-            <article>
-              <div>
-                <img src="" alt="" />
-                <span></span>
-              </div>
-            </article>           
-
-         </section>
-
+          <div>
+            <img src="" alt="" />
+            <span></span>
+          </div>
         </section>
-        <button>Change F / C</button>
-
+      </section>
+      <button>Change F / C</button>
     </section>
-  )
-}
-export default Weather
+  );
+};
+export default Weather;
