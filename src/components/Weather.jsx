@@ -1,4 +1,27 @@
+import { useEffect, useState } from "react";
+
 const Weather = ({ weatherInfo }) => {
+  let gradesView = "";
+  const [flag, setFlag] = useState(false);
+  // const [grade, setgrade] = useState(false);
+  if (weatherInfo && weatherInfo.main) {
+    const kelvin = weatherInfo.main.temp;
+    if (kelvin != undefined) {
+      const conver = kelvin - 273.15;
+      // setgrade(conver.toFixed(2))
+      gradesView = conver.toFixed(2) + " C°";
+    }
+  }
+  // useEffect(() => {
+
+  // });
+  function convert() {
+    console.log("data");
+    if (flag == false) {
+      console.log(gradesView);
+      console.log((gradesView * 9) / 5 + 32);
+    }
+  }
   return (
     <section className="background">
       <div className="titleHome">
@@ -7,12 +30,12 @@ const Weather = ({ weatherInfo }) => {
         </h2>
       </div>
 
-      <section className="flex">
+      <section className="movi">
         <article className="mAuto">
           <div className="contentWeather">
             <h3 className="titleTow">{weatherInfo?.weather[0].description}</h3>
             <div className="contentBoxOne">
-              <span>{weatherInfo?.main.temp}°K</span>
+              <span>{gradesView}</span>
               <img
                 src={`https://openweathermap.org/img/wn/${weatherInfo?.weather[0].icon}@4x.png`}
                 alt=""
@@ -35,25 +58,10 @@ const Weather = ({ weatherInfo }) => {
             </div>
           </div>
         </article>
-
-        <section>
-          <div>
-            <img src="" alt="" />
-            <span></span>
-          </div>
-
-          <div>
-            <img src="" alt="" />
-            <span></span>
-          </div>
-
-          <div>
-            <img src="" alt="" />
-            <span></span>
-          </div>
-        </section>
       </section>
-      <button>Change F / C</button>
+      <button onClick={convert} className="btnChange">
+        Change F / C
+      </button>
     </section>
   );
 };

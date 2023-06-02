@@ -1,7 +1,13 @@
+body,
+html,
+#root,
+main {
+  height: 100%;
+}
 .background {
   background-image: url("/images/fondo.jpg");
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-size: cover;
 }
 .titleHome {
@@ -21,10 +27,9 @@
   text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
   margin-top: 200px;
 }
-.flex {
+.movi {
   display: flex;
   width: 100%;
-  height: 100%;
 }
 .mAuto {
   margin-left: auto;
@@ -84,4 +89,17 @@
 .contentBox img {
   width: 25px;
   height: 25px;
+}
+.btnChange {
+  margin: auto;
+  display: flex;
+  width: 151.87px;
+  height: 34px;
+  background: #ffffff;
+  box-shadow: 0px 4.53333px 4.53333px rgba(0, 0, 0, 0.25);
+  border-radius: 21.5333px;
+  color: #4580ba;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
 }
